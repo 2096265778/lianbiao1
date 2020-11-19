@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 41
+#define M 3
+typedef struct Node
+{
+            int data;
+                struct Node *next;
+}Node;
+typedef struct Node *LinkList;
+Node* CreatList(struct Node *La,int n)
+{int i;
+            struct Node *p,*s;
+                La = (LinkList)malloc(sizeof(Node));
+                    La->next = NULL;
+                        p = La;
+                            for(i = 1;i <= N;i++)
+                                        {
+                                                    s = (LinkList)malloc(sizeof(Node));
+                                                        s->data = i;
+                                                            s->next = p->next;
+                                                                p->next = s;
+                                                                    p = p->next;
+                                                                        }
+                                p->next = La->next;
+                                    return p ;
+}
+void printx(struct Node *La,int n, int m)
+{
+ int i,j;
+                struct Node *p,*s;
+                    p = La;
+
+                        for(i = 1;i <= n;i++ )
+                                    {
+                                                    p = p->next;
+                                                            p = p->next;
+                                                                    s  = p->next;
+                                                                            p->next = s->next;
+                                                                                    printf("%5d",s->data);
+                                                                                            free(s);
+                                                                                                }
+}
+
+int main(int argc,char *argv[])
+{
+            int i;
+                struct Node *L;
+                    struct Node *q;
+                        L = CreatList(L,N);
+                            q = L;
+                                printf("Josephus 的输出顺序为：\n");
+                                    printx(L,N,M);
+                                        printf("\n");
+                                            system("pause");
+                                            return 0;
+}
