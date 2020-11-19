@@ -1,2 +1,3 @@
-test: link yuesefu 
-    gcc link yuesefu -o test
+testlistg:listg.h listg.c
+testlistg.c
+gcc testlistg.c -o test
