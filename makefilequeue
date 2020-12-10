@@ -1,0 +1,5 @@
+all:queue
+queue:queue2.c queue4.c
+	gcc queue2.c queue4.c -o queue
+clean:
+	rm queue
